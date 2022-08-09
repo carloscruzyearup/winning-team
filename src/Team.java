@@ -20,36 +20,54 @@
 /******************************************************************************/
 
 public class Team {
-	private String _name;
-	private int _wins;
-	private int _losses;
+	private String name;
+	private int wins;
+	private int losses;
+
 
 	// Constructor
-	public Team(String name, int wins, int losses)
+	public void setName(String name)
 	{
-		setName();
-		setWins();
-		setLosses();
-	}
-
-	public void setName()
-	{
+		this.name= name;
 	}
 
 	public String getName()
 	{
-		return "NA"; // TODO: Return name
+		return name;
+
+	}
+	public int getWins() {
+		return wins;
+	}
+
+	public void setWins(int wins) {
+		this.wins = wins;
+	}
+
+	public int getLosses() {
+		return losses;
+	}
+
+	public void setLosses(int losses) {
+		this.losses = losses;
 	}
 
 	public float getWinPercentage()
 	{
-		return 0.0f; // TODO: Return the win percentage
+
+		return wins/(wins + losses);
 	}
 
 	public void printStanding()
 	{
-		// TODO: output the win percentage of the team with two digits after
-		// the decimal point and whether the team has a winning or losing average.
-		// A team has a winning average if the win percentage is 0.5 or greater.
+		if(getWinPercentage()>=0.5) // determine if the winning score if >=0.5
+		{
+			System.out.println("Win percentage: "+ getWinPercentage());
+			System.out.prinln("Congratulations, Team " + getName() + "has a winning average!");
+
+		} else {
+            System.out.println("Win percentage : "+ getWinPercentage());
+			System.out.println("Team Angels has a losing average.");
+		}
 	}
 }
