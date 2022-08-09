@@ -3,21 +3,27 @@ import java.util.Scanner;// user import
 public class TestTeam {
 
     public static void main(String[] args) {
+    	
         Scanner teamsData = new Scanner(System.in);
+        
         System.out.println(" Insert the team's name: ");
-        String name=teamsData.nextString();
+        String name = teamsData.nextLine();
+        
         System.out.println(" Insert the team's wins: ");
-        int wins= teamsData.nextInt();
+        int wins = teamsData.nextInt();
+        
         System.out.println(" Insert the team's losses: ");
-        int losses= teamsData.nextInt();
+        int losses = teamsData.nextInt();
 
-        Team result= new Team();
+        Team result = new Team();
+        
         result.setName(name);
         result.setLosses(losses);
         result.setWins(wins);
 
-
-        System.out.println(result.printStanding());
+        result.printStanding();
+        
+        teamsData.close();
     }
 
 

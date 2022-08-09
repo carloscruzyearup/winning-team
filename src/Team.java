@@ -52,7 +52,7 @@ public class Team {
 
 	public double getWinPercentage() {
 
-		if (wins == 0) {
+		if (wins == 0 && losses == 0) {
 			return -1;
 		} else {
 
@@ -67,7 +67,7 @@ public class Team {
 		if (getWinPercentage() >= 0.5) // determine if the winning score if >=0.5
 		{
 			System.out.format("Win percentage: %.2f\n", getWinPercentage());
-			System.out.println("Congratulations, Team " + getName() + " has a winning average!");
+			System.out.println("Congratulations, team " + getName() + " has a winning average!");
 
 		} else if (getWinPercentage() == -1) {
 			System.out.println("The team did not win anything");
