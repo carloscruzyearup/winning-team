@@ -24,18 +24,16 @@ public class Team {
 	private int wins;
 	private int losses;
 
-
 	// Constructor
-	public void setName(String name)
-	{
-		this.name= name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getName()
-	{
+	public String getName() {
 		return name;
 
 	}
+
 	public int getWins() {
 		return wins;
 	}
@@ -52,22 +50,30 @@ public class Team {
 		this.losses = losses;
 	}
 
-	public float getWinPercentage()
-	{
+	public double getWinPercentage() {
 
-		return wins/(wins + losses);
+		if (wins == 0) {
+			return -1;
+		} else {
+
+			return (double) wins / (wins + losses); // the result will be f
+
+		}
+
 	}
 
-	public void printStanding()
-	{
-		if(getWinPercentage()>=0.5) // determine if the winning score if >=0.5
-		{
-			System.out.println("Win percentage: "+ getWinPercentage());
-			System.out.prinln("Congratulations, Team " + getName() + "has a winning average!");
+	public void printStanding() {
 
+		if (getWinPercentage() >= 0.5) // determine if the winning score if >=0.5
+		{
+			System.out.format("Win percentage: %.2f\n", getWinPercentage());
+			System.out.println("Congratulations, Team " + getName() + " has a winning average!");
+
+		} else if (getWinPercentage() == -1) {
+			System.out.println("The team did not win anything");
 		} else {
-            System.out.println("Win percentage : "+ getWinPercentage());
-			System.out.println("Team Angels has a losing average.");
+			System.out.format("Win percentage: %.2f\n", getWinPercentage());
+			System.out.println("Team " + getName() + " has a losing average.");
 		}
 	}
 }
